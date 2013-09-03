@@ -1,5 +1,5 @@
 <h2>MigoCraft<br/>
-米戈♂克拉夫特</h2>
+<del>米戈♂克拉夫特</del> (大雾)</h2>
 =========
 
 [!WIP!] A Minecraft Mod, which looks like UgoCraft...?<br/>
