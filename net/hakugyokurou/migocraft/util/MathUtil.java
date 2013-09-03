@@ -1,0 +1,37 @@
+package net.hakugyokurou.migocraft.util;
+
+import org.lwjgl.opengl.GL11;
+
+import net.minecraft.util.Vec3;
+
+public abstract class MathUtil {
+
+	public static final double HALF_SQRT3 = Math.sqrt(3)/2;
+	public static final double NEG_HALF_SQRT3 = -Math.sqrt(3)/2;
+	public static final double QUARTER_PI = Math.PI/4;
+	public static final double THREE_QUARTER_PI = (Math.PI/4)*3;
+	public static final double NEG_QUARTER_PI = -Math.PI/4;
+	public static final double NEG_THREE_QUARTER_PI = -(Math.PI/4)*3;
+	
+	public static double[] transformVectorToAngle(Vec3 vec3)
+	{
+		return transformVectorToAngle(vec3.xCoord, vec3.yCoord, vec3.zCoord);
+	}
+	
+	public static double[] transformVectorToAngle(double x,double y,double z)
+	{
+		double pitch = Math.atan2(y, z)/Math.PI*180d;
+		double yaw = Math.atan2(x, z)/Math.PI*180d;
+		double roll = Math.atan2(y, x)/Math.PI*180d;
+		return new double[]{yaw,pitch,roll};
+	}
+	
+	public static Vec3 transformAngleToVector(double yaw,double pitch,double roll)
+	{
+		double x = Math.cos(roll/180*Math.PI);
+		double y = Math.cos(pitch/180*Math.PI);
+		double z = Math.sin(pitch/180*Math.PI);
+		return Vec3.createVectorHelper(x, y, z).normalize();
+	}
+
+}
