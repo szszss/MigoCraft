@@ -1,5 +1,5 @@
 <h2>MigoCraft<br/>
-米戈♂克拉夫特</h2>
+<del>米戈♂克拉夫特</del> (大雾)</h2>
 =========
 
 [!WIP!] A Minecraft Mod, which looks like UgoCraft...?<br/>
@@ -10,7 +10,7 @@ MigoCraft is a MCMod wrote by Szszss(a.k.a szszss), a modder and a tutorial-writ
 MigoCraft是一个MCMod,它的作者是szszss,一个Modder和Mod教程编写者.MigoCraft是一个开源Mod,因为它使用MIT许可证,因此你不但可以自由地阅读它的源代码,还能在你的作品里使用它的代码 - 只要你遵循MIT许可证的协议.
 
 
-How to deploy it in your Eclipse
+How to deploy it in your Eclipse<br/>
 如何将项目部署到Eclipse中
 
 
