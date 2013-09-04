@@ -12,7 +12,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ForgeDirection;
 
 /**
- * ICS即Independent Cordinate System独立坐标系.ICS提供了局部坐标系与总坐标系间换算处理.
+ * 独立坐标系
+ * 
+ * ICS(Independent Cordinate System 独立坐标系)提供了局部坐标系与全局坐标系间换算处理.<br/>
+ * 
  * @author szszss
  */
 public class ICS implements IBlockAccess{

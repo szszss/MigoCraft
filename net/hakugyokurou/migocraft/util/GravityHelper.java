@@ -8,6 +8,12 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.ForgeHooks;
 
+/**
+ * 重力辅助类<br/><br/>
+ * 
+ * 包括一些用于重力计算的方法,主要被ASM修改后的类调用.
+ * @author szszss
+ */
 public abstract class GravityHelper {
 
 	public static final String CLASS_NAME = "net/hakugyokurou/migocraft/util/GravityHelper";

@@ -10,6 +10,12 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
+/**
+ * 镜头运算辅助类<br/><br/>
+ * 
+ * 包括一些玩家视角/视场/镜头调整以及运算的方法,主要被ASM修改后的类调用.
+ * @author szszss
+ */
 public abstract class CameraHelper {
 	
 	public static final String CLASS_NAME = "net/hakugyokurou/migocraft/util/CameraHelper";

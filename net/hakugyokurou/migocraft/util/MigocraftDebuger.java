@@ -14,6 +14,12 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.ServerChatEvent;
 
+/**
+ * 除错辅助工具<br/>
+ * <br/>
+ * 很简陋的除错辅助工具.
+ * @author szszss
+ */
 public class MigocraftDebuger {
 	
 	public static MigocraftDebuger INSTANCE;

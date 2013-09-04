@@ -9,6 +9,13 @@ import net.hakugyokurou.migocraft.util.GravityHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Vec3;
 
+/**
+ * 镜头渲染器<br/><br/>
+ * 
+ * 镜头渲染器包含一些调整玩家镜头的方法,但不建议二次开发者使用这个类.<br/>
+ * 况且,它会在下一次代码重构时被删除掉.
+ * @author szszss
+ */
 @Deprecated
 @SideOnly(value = Side.CLIENT)
 public abstract class CameraRenderer {

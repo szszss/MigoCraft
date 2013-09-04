@@ -4,6 +4,12 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.util.Vec3;
 
+/**
+ * 数学运算工具类<br/><br/>
+ * 
+ * 包括一些向量运算的辅助函数.
+ * @author szszss
+ */
 public abstract class MathUtil {
 
 	public static final double HALF_SQRT3 = Math.sqrt(3)/2;

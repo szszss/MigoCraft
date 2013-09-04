@@ -5,6 +5,12 @@ import java.util.Map;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
+/**
+ * MigoCraft载入入口类<br/><br/>
+ * 
+ * Coremod的载入入口类.
+ * @author szszss
+ */
 @TransformerExclusions(value={"net.hakugyokurou.migocraft.asm"})
 public class MigocraftCorePlugin implements IFMLLoadingPlugin{
 

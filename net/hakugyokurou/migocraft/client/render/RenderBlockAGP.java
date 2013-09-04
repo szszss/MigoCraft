@@ -12,6 +12,13 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * 反重力板砖块渲染类<br/><br/>
+ * 
+ * 用于渲染反重力板,反重力板的物理性质类似于UgoCraft的绝缘板,可以被贴在一个砖块上,<br/>
+ * 它是一个非常薄的薄片,在渲染时,渲染器需要判断板子的朝向,并以此来渲染.
+ * @author szszss
+ */
 @SideOnly(value = Side.CLIENT)
 public class RenderBlockAGP implements ISimpleBlockRenderingHandler{
 
