@@ -32,7 +32,6 @@ import static net.hakugyokurou.migocraft.MigocraftConst.*;
  * Mod主类<br/><br/>
  * 
  * MigoCraft的Mod主类&Mod容器类.
- * @author szszss
  */
 public class Migocraft extends DummyModContainer{
 	

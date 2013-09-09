@@ -6,7 +6,6 @@ import java.util.Random;
  * 常量类<br/><br/>
  * 
  * 包括一些字符串常量.
- * @author szszss
  */
 public abstract class MigocraftConst {
 	
