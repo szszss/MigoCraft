@@ -19,6 +19,20 @@ public abstract class MathUtil {
 	public static final double NEG_QUARTER_PI = -Math.PI/4;
 	public static final double NEG_THREE_QUARTER_PI = -(Math.PI/4)*3;
 	
+	public static float clamp(float number,float min,float max)
+	{
+		return number<min?min:
+			   number>max?max:
+					      number;
+	}
+	
+	public static double clamp(double number,double min,double max)
+	{
+		return number<min?min:
+			   number>max?max:
+					      number;
+	}
+	
 	public static double[] transformVectorToAngle(Vec3 vec3)
 	{
 		return transformVectorToAngle(vec3.xCoord, vec3.yCoord, vec3.zCoord);
@@ -26,12 +40,16 @@ public abstract class MathUtil {
 	
 	public static double[] transformVectorToAngle(double x,double y,double z)
 	{
-		double pitch = Math.atan2(y, z)/Math.PI*180d;
-		double yaw = Math.atan2(x, z)/Math.PI*180d;
-		double roll = Math.atan2(y, x)/Math.PI*180d;
+		//double pitch = Math.atan2(y, z)/Math.PI*180d;
+		//double yaw = Math.atan2(-x, z)/Math.PI*180d;
+		//double roll = Math.atan2(x, -y)/Math.PI*180d;
+		double pitch = Math.asin(clamp(2 * (1 * x - y * z) , -1.0f , 1.0f))/Math.PI*180d; 
+		double yaw = Math.atan2(2*(y+z * x) , 1 - 2 * (x * x + y * y))/Math.PI*180d; 
+		double roll = Math.atan2(2*(z+x * y) , 1 - 2 * (z * z + x * x))/Math.PI*180d;
 		return new double[]{yaw,pitch,roll};
 	}
 	
+	@Deprecated
 	public static Vec3 transformAngleToVector(double yaw,double pitch,double roll)
 	{
 		double x = Math.cos(roll/180*Math.PI);

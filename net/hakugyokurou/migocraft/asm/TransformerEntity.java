@@ -43,18 +43,14 @@ abstract class TransformerEntity {
 		{
 			if(methodNode.name.equals("<init>") && !inDev)
 			{
-				String className = FMLDeobfuscatingRemapper.INSTANCE.map("net/minecraft/util/Vec3");
-				//String classDesc = FMLDeobfuscatingRemapper.INSTANCE.mapDesc("net/minecraft/util/Vec3");
-				String fieldDesc = "L"+className+";";//Lnet/minecraft/util/Vec3;
-				String methodDesc = "(DDD)"+fieldDesc;//(DDD)Lnet/minecraft/util/Vec3;
-				String methodName = FMLDeobfuscatingRemapper.INSTANCE.mapMethodName("net/minecraft/util/Vec3", "createVectorHelper", methodDesc);
+				String methodName = ASMHelper.getActualName("createVectorHelper", "func_72443_a");
 				InsnList insnList = new InsnList();
-				insnList.add(new InsnNode(42));//ALOAD_0
+				insnList.add(new VarInsnNode(ALOAD, 0));
 				insnList.add(new InsnNode(DCONST_0));
 				insnList.add(new LdcInsnNode(Double.valueOf(-1.0D)));
 				insnList.add(new InsnNode(DCONST_0));
-				insnList.add(new MethodInsnNode(INVOKESTATIC, className, methodName, methodDesc));
-				insnList.add(new FieldInsnNode(PUTFIELD, name.replace('.', '/'), "gravitySource", fieldDesc));
+				insnList.add(new MethodInsnNode(INVOKESTATIC, "net/minecraft/util/Vec3", methodName, "(DDD)Lnet/minecraft/util/Vec3;"));
+				insnList.add(new FieldInsnNode(PUTFIELD, name.replace('.', '/'), "gravitySource", "Lnet/minecraft/util/Vec3;"));
 				AbstractInsnNode ain = methodNode.instructions.getFirst();
 				while(!(ain instanceof MethodInsnNode))
 				{
