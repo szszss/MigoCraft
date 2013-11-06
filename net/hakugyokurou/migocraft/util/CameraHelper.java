@@ -23,13 +23,12 @@ public abstract class CameraHelper {
 	@SideOnly(value = Side.CLIENT)
 	public static void rotateCameraFV(Entity entity)
 	{
-		//if(entity.gravitySource.yCoord == -1d)
-		//	return;
+		if(entity.gravitySource.yCoord == -1d)
+			return;
 		double[] ds = MathUtil.transformVectorToAngle(entity.gravitySource);
 		//yawY,pitchX,rollZ
-		//GL11.glRotated(ds[0]    ,0f,1f,0f);
-		//GL11.glRotated(ds[1]+90d,1f,0f,0f);
-		//GL11.glRotated(ds[2]+90d,0f,0f,1f);
+		GL11.glRotated(ds[0],     0f,-1f,0f);
+		GL11.glRotated(ds[1]+90d, -1f,0f,0f);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -57,24 +56,10 @@ public abstract class CameraHelper {
 		}
 		else
 		{
-			double[] ds = MathUtil.transformVectorToAngle(entity.gravitySource);
-			float f2 = entity.rotationPitch;
-	        float f3 = entity.rotationYaw;
-	        entity.rotationYaw = (float)((double)entity.rotationYaw + (double)par1 * 0.15D);
-	        entity.rotationPitch = (float)((double)entity.rotationPitch - (double)par2 * 0.15D);
-	
-	        if (entity.rotationPitch < -90.0F)
-	        {
-	        	entity.rotationPitch = -90.0F;
-	        }
-	
-	        if (entity.rotationPitch > 90.0F)
-	        {
-	        	entity.rotationPitch = 90.0F;
-	        }
-	
-	        entity.prevRotationPitch += entity.rotationPitch - f2;
-	        entity.prevRotationYaw += entity.rotationYaw - f3;
+			VirtualViewportBall.instance.setGravitySource(entity.gravitySource, entity.rotationPitch, entity.rotationYaw);
+			VirtualViewportBall.instance.process(entity.gravitySource, par1, par2);
+			entity.rotationYaw = VirtualViewportBall.instance.realRotationYaw;			
+	        entity.rotationPitch = VirtualViewportBall.instance.realRotationPitch;
 		}
 		
     }

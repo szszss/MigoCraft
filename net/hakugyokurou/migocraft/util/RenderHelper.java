@@ -15,9 +15,9 @@ public abstract class RenderHelper {
 			//yawY,pitchX,rollZ
 			GL11.glTranslated(0, -entity.getEyeHeight()*11, 0);
 			double[] ds = MathUtil.transformVectorToAngle(entity.gravitySource);
-			GL11.glRotated(ds[0],     0f,1f,0f);
-			GL11.glRotated(ds[1]+90d, 1f,0f,0f);
-			GL11.glRotated(ds[2],     0f,0f,1f);
+			GL11.glRotated(ds[0],     0f,-1f,0f);
+			GL11.glRotated(ds[1]+90d, -1f,0f,0f);
+			//GL11.glRotated(ds[2],     0f,0f,1f);
 			GL11.glTranslated(0, entity.getEyeHeight()*11, 0);
 		}
 	}

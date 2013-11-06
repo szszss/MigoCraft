@@ -40,12 +40,9 @@ public abstract class MathUtil {
 	
 	public static double[] transformVectorToAngle(double x,double y,double z)
 	{
-		//double pitch = Math.atan2(y, z)/Math.PI*180d;
-		//double yaw = Math.atan2(-x, z)/Math.PI*180d;
-		//double roll = Math.atan2(x, -y)/Math.PI*180d;
-		double pitch = Math.asin(clamp(2 * (1 * x - y * z) , -1.0f , 1.0f))/Math.PI*180d; 
-		double yaw = Math.atan2(2*(y+z * x) , 1 - 2 * (x * x + y * y))/Math.PI*180d; 
-		double roll = Math.atan2(2*(z+x * y) , 1 - 2 * (z * z + x * x))/Math.PI*180d;
+		double pitch = Math.asin(y)/Math.PI*180d;
+		double yaw = Math.atan2(-x, z)/Math.PI*180d;
+		double roll = Math.atan2(x, -y)/Math.PI*180d;
 		return new double[]{yaw,pitch,roll};
 	}
 	

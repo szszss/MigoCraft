@@ -24,15 +24,19 @@ public class VirtualViewportBall {
 	
 	private float virtualRotationPitch = 0f;
 	private float virtualRotationYaw = 0f;
-	private float realRotationPitch = 0f;
-	private float realRotationYaw = 0f;
+	public float realRotationPitch = 0f;
+	public float realRotationYaw = 0f;
+	private float diffPitch;
+	private float diffYaw;
 	
 	public void setGravitySource(Vec3 source,float rotationPitch,float rotationYaw)
 	{
 		//yawY,pitchX,rollZ
 		double[] ds = MathUtil.transformVectorToAngle(source);
-		virtualRotationYaw = rotationYaw + (float)ds[0];
-		virtualRotationPitch = rotationPitch + (float)ds[1] + 90;
+		diffYaw = (float)ds[0];
+		diffPitch = (float)ds[1];
+		virtualRotationYaw = rotationYaw + diffYaw;
+		virtualRotationPitch = rotationPitch - (diffPitch + 90f);
 	}
 	
 	public void process(Vec3 source,float x,float y)
@@ -48,6 +52,7 @@ public class VirtualViewportBall {
         {
         	virtualRotationPitch = 90.0F;
         }
-        
+        realRotationYaw = virtualRotationYaw - diffYaw;
+        realRotationPitch = virtualRotationPitch + (diffPitch + 90f);
 	}
 }
